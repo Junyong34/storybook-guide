@@ -18,11 +18,19 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@compositions/*": ["src/compositions/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@queries/*": ["src/queries/*"],
+      "@routes/*": ["src/routes/viewPort/*"],
+      "@api/*": ["src/api/*"],
       "@stores/*": ["src/stores/*"],
+      "@constants/*": ["src/constants/*"],
+      "@mocks/*": ["src/mocks/*"]
     }
   },
-  "exclude": ["node_modules"],
+  "exclude": [ "node_modules"],
   "include": ["src", "**/*.ts", "**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
