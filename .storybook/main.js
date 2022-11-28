@@ -1,17 +1,14 @@
-const tsconfigPaths = require('vite-tsconfig-paths').default
+const tsconfigPaths = require('vite-tsconfig-paths').default;
 // const { mergeConfig } = require('vite')
-const path = require('path')
-const svgrPlugin = require('vite-plugin-svgr')
+const path = require('path');
+const svgrPlugin = require('vite-plugin-svgr');
 // const { loadEnv } = require('vite')
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
   ],
 
   viteFinal: async (config, { configType }) => {
@@ -22,7 +19,7 @@ module.exports = {
         find: '@',
         replacement: path.resolve(__dirname, '../src'),
       },
-    ]
+    ];
     config.plugins = [
       ...config.plugins,
       svgrPlugin({
@@ -33,14 +30,16 @@ module.exports = {
       tsconfigPaths({
         projects: [path.resolve(path.dirname(__dirname), '', 'tsconfig.json')],
       }),
-    ]
-    return config
+    ];
+    return config;
   },
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-vite',
   },
-  "features": {
-    "storyStoreV7": true
-  }
-}
+  features: {
+    storyStoreV7: true,
+    interactionsDebugger: true,
+    buildStoriesJson: true,
+  },
+};

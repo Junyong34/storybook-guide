@@ -1,5 +1,8 @@
-import { StorybookApp } from './StorybookApp'
+import { StorybookApp } from './StorybookApp';
 
+import { configure } from '@testing-library/dom';
+
+configure({ testIdAttribute: 'story-id' });
 const defaultViewport = {
   defaultResolution: {
     name: 'default HD',
@@ -8,7 +11,7 @@ const defaultViewport = {
       height: '1080px',
     },
   },
-}
+};
 const customViewports = {
   desktop: {
     type: 'desktop',
@@ -26,9 +29,9 @@ const customViewports = {
       height: '100%',
     },
   },
-}
+};
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
     viewports: {
       ...defaultViewport,
@@ -41,5 +44,5 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
-export const decorators = [StorybookApp]
+};
+export const decorators = [StorybookApp];
