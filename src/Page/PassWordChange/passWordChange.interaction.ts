@@ -8,6 +8,7 @@ export function passWordChangeRunTest(story: ComponentStory<typeof PasswordChang
   story.play = async ({ args, canvasElement }) => {
     // Starts querying the component from its root element
     const canvas = within(canvasElement);
+    console.log(canvas);
     const before_pw_title = canvas.getByTestId('before_pw');
     const change_pw_title = canvas.getByTestId('change_pw');
     const change_pw2_title = canvas.getByTestId('change_pw2');
@@ -62,9 +63,10 @@ export function passWordChangeRunTest(story: ComponentStory<typeof PasswordChang
     const dialogCanvas2 = within(dialogDom2);
     const alert_msg2 = dialogCanvas2.getByTestId('alert_msg');
 
+    console.log(alert_msg2.textContent, PASSWORD_MSG['NEW_PASSWORD_CHECK'].content);
     await expect(alert_msg2.textContent).toBe(PASSWORD_MSG['NEW_PASSWORD_CHECK'].content);
-
-    await userEvent.click(alert_close);
+    const alert_close2 = dialogCanvas2.getByTestId('dialog_close');
+    await userEvent.click(alert_close2);
 
     // 정상 처리
     await userEvent.clear(canvas.getByTestId('ps_field'));
@@ -90,10 +92,9 @@ export function passWordChangeRunTest(story: ComponentStory<typeof PasswordChang
 
     console.log(alert_msg3.textContent, PASSWORD_MSG['PASSWORD_SAVE'].content);
     await expect(alert_msg3.textContent).toBe(PASSWORD_MSG['PASSWORD_SAVE'].content);
-    // await expect(
-    //   dialogCanvas3.getByText(PASSWORD_MSG['PASSWORD_SAVE'].content)
-    // ).toBeInTheDocument();
-    await userEvent.click(alert_close);
+
+    const alert_close3 = dialogCanvas3.getByTestId('dialog_close');
+    await userEvent.click(alert_close3);
   };
 
   return story;
