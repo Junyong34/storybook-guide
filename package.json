@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test-storybook": "test-storybook --stories-json --maxWorkers=10 --verbose"
+    "test-storybook": "test-storybook --stories-json --maxWorkers=10 --verbose",
+    "chromatic": "npx chromatic --project-token=0009989edefd"
   },
   "dependencies": {
     "@emotion/styled": "^11.8.1",
@@ -23,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/styled": "^11.8.1",
     "@faker-js/faker": "^7.3.0",
     "@mui/icons-material": "^5.8.0",
     "@mui/lab": "5.0.0-alpha.104",
