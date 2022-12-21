@@ -1,4 +1,4 @@
-import { StorybookApp } from './StorybookApp';
+import { StorybookApp2 } from './StorybookApp';
 
 import { configure } from '@testing-library/dom';
 
@@ -45,4 +45,4 @@ export const parameters = {
     },
   },
 };
-export const decorators = [StorybookApp];
+export const decorators = [StorybookApp2];

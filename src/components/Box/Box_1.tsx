@@ -9,7 +9,6 @@ const Box_1 = (props: PropsWithChildren) => {
         border: '1px solid black',
       }}
     >
-      {' '}
       {props.children}
     </Box>
   );

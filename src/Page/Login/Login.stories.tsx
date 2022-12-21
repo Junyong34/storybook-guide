@@ -1,15 +1,21 @@
-import { Meta, Story } from '@storybook/react'
-import React from 'react'
-import Login from './Login'
+import { Meta, Story } from '@storybook/react';
+import React from 'react';
+import Login from './Login';
 
 const Template: Story = () => {
-  return <Login />
-}
+  return <Login />;
+};
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
 export default {
   title: 'pages/Login',
   component: Login,
-} as Meta
+  parameters: {
+    paramLink: {
+      path: '/login/:id',
+      route: '/login/1',
+    },
+  },
+} as Meta;
